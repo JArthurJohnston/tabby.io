@@ -7,8 +7,7 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
 // Create a new router instance
-const router = createRouter({ routeTree })
-
+const router = createRouter({ routeTree, basepath: '/tabby.io/' })
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
