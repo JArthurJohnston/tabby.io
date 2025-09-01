@@ -10,7 +10,7 @@ export function Compositions() {
       <div className='flex col bordered'>
         {compositions.map((e) => (
           <button
-            key={e.title}
+            key={`${e.title}-${e.id}`}
             onClick={() => setCurrent(e)}
             className={`${current === e ? 'highlighted' : ''} full-width`}
           >

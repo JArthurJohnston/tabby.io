@@ -1,6 +1,13 @@
 {
+  "id": 0,
   "title": "The Place I'll Return to Someday",
   "Author": "Nobuo Uematsu",
   "instrument": "Native Flute in D",
+  "attributes": [
+    {
+      "value": "https://i.pinimg.com/736x/39/46/78/394678feafcce5d0ca85265ef5d08daa.jpg",
+      "type": "link"
+    }
+  ],
   "arrangement": "f g a b c#  c#6 d# c#6 c# b  c# b a g f\nf g a b c#  c#6 d# c#6 c c b c  \n"
 }

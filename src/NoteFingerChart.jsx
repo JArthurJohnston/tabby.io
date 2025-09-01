@@ -12,8 +12,9 @@ export function NoteFingerChart({ note, scale = 1, onClick, highlight }) {
     >
       {Array.from(fingering)
         .reverse()
-        .map((e) => (
+        .map((e, index) => (
           <svg
+            key={`${note}-${e}-${index}`}
             height={100 * scale}
             width={computedWidth}
             xmlns='http://www.w3.org/2000/svg'

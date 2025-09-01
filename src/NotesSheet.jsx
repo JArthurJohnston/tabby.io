@@ -7,7 +7,7 @@ export function NotesSheet() {
   return (
     <div className='flex row full-width jsb'>
       {instrument.notes.map((e) => (
-        <NoteFingerChart note={e} scale={0.25} />
+        <NoteFingerChart key={`${instrument.id}-${e.fingering}`} note={e} scale={0.25} />
       ))}
     </div>
   )

@@ -9,8 +9,8 @@ export function FingeringChart() {
       {instrument.fingering
         .slice()
         .reverse()
-        .map((e) => (
-          <Hole scale={0.7}>{e}</Hole>
+        .map((e, index) => (
+          <Hole key={`${instrument.id}-${e}-${index}`} scale={0.7}>{e}</Hole>
         ))}
       <WhistleHole />
     </div>
@@ -33,8 +33,8 @@ function Hole({ children, background = 'white', color = 'black', scale = 1 }) {
       <text
         x={50 * scale}
         y={60 * scale}
-        font-size={30 * scale}
-        text-anchor='middle'
+        fontSize={30 * scale}
+        textAnchor='middle'
         fill={color}
       >
         {children}
@@ -58,7 +58,7 @@ function WhistleHole({ stroke = 'white', fill = 'white', scale = 1 }) {
         width={30 * scale}
         stroke={stroke}
         fill={fill}
-        stroke-width='5'
+        strokeWidth='5'
       />
     </svg>
   )

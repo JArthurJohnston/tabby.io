@@ -10,6 +10,7 @@ const {
 } = FINGERS
 
 export const NAFlute = {
+  id: 0,
   name: 'Native Flute in D',
   holes: 6,
   fingering: [
