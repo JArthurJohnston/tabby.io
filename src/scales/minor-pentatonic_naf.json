@@ -1,0 +1,15 @@
+{
+  "instrument": 0,
+  "name": "Minor Pentatonic Scale",
+  "id": "minor_pentatonic",
+  "fingering": [
+    "111111",
+    "111110",
+    "111100",
+    "111000",
+    "101000",
+    "001000"
+  ],
+  "source": "https://flutecraft.org/12-scales-to-play-on-native-american-flute/342",
+  "notes": "Most NA flutes only had 5 holes. So when playing a 6 hole flute, the third hole is always covered"
+}

@@ -6,7 +6,7 @@ export function Compositions() {
   const { compositions, current, setCurrent } = useCompositons()
   const instrument = useInstrument()
   return (
-    <div className='flex row'>
+    <div className='flex row' style={{height: '100%'}}>
       <div className='flex col bordered'>
         {compositions.map((e) => (
           <button
@@ -18,7 +18,7 @@ export function Compositions() {
           </button>
         ))}
       </div>
-      <TabSheet composition={current} instrument={instrument} />
+      <TabSheet arrangement={current.arrangement} instrument={instrument} />
     </div>
   )
 }
