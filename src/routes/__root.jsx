@@ -11,6 +11,7 @@ export const Route = createRootRoute({
         <CompositionsProvider>
           <div className='flex bordered jsb mb'>
             <Link to='/'>Home</Link>
+            <Link to='/abc_composer'>ABC</Link>
             <Link to='/compositions'>Compositions</Link>
           </div>
           <Outlet />

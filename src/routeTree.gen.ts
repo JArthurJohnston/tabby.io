@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as CompositionsRouteRouteImport } from './routes/compositions.route'
 import { Route as ComposerRouteRouteImport } from './routes/composer.route'
+import { Route as Abc_composerRouteRouteImport } from './routes/abc_composer.route'
 import { Route as IndexRouteRouteImport } from './routes/index.route'
 
 const CompositionsRouteRoute = CompositionsRouteRouteImport.update({
@@ -23,6 +24,11 @@ const ComposerRouteRoute = ComposerRouteRouteImport.update({
   path: '/composer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Abc_composerRouteRoute = Abc_composerRouteRouteImport.update({
+  id: '/abc_composer',
+  path: '/abc_composer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRouteRoute = IndexRouteRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRouteRoute = IndexRouteRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRouteRoute
+  '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
   '/compositions': typeof CompositionsRouteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRouteRoute
+  '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
   '/compositions': typeof CompositionsRouteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRouteRoute
+  '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
   '/compositions': typeof CompositionsRouteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/composer' | '/compositions'
+  fullPaths: '/' | '/abc_composer' | '/composer' | '/compositions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/composer' | '/compositions'
-  id: '__root__' | '/' | '/composer' | '/compositions'
+  to: '/' | '/abc_composer' | '/composer' | '/compositions'
+  id: '__root__' | '/' | '/abc_composer' | '/composer' | '/compositions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRouteRoute: typeof IndexRouteRoute
+  Abc_composerRouteRoute: typeof Abc_composerRouteRoute
   ComposerRouteRoute: typeof ComposerRouteRoute
   CompositionsRouteRoute: typeof CompositionsRouteRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComposerRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/abc_composer': {
+      id: '/abc_composer'
+      path: '/abc_composer'
+      fullPath: '/abc_composer'
+      preLoaderRoute: typeof Abc_composerRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRouteRoute: IndexRouteRoute,
+  Abc_composerRouteRoute: Abc_composerRouteRoute,
   ComposerRouteRoute: ComposerRouteRoute,
   CompositionsRouteRoute: CompositionsRouteRoute,
 }

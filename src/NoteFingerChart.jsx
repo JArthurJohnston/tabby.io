@@ -7,7 +7,7 @@ export function NoteFingerChart({ note, scale = 1, onClick, highlight }) {
   return (
     <div
       className='bordered flex col mr'
-      style={{ height: '25vh', backgroundColor: `${highlight ? 'lightblue' : ''}` }}
+      style={{  backgroundColor: `${highlight ? 'lightblue' : ''}` }}
       onClick={onClick}
     >
       {Array.from(fingering)

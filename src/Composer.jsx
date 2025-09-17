@@ -1,7 +1,8 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useInstrument } from './providers/InstrumentContext'
 import { TabSheet } from './components/TabSheet'
 import { useCompositons } from './providers/CompositonContext'
+import { processLines } from './tab-parsers'
 
 export function Composer() {
   const {
@@ -16,16 +17,10 @@ export function Composer() {
   const editorRef = useRef()
 
   const handleUpdate = (e) => {
-    const { value, selectionStart } = e.target
+    const { value } = e.target
     if (NOTES_REGEX.test(value)) {
       updateArrangement(value)
     }
-    console.log(selectionStart)
-  }
-
-  const handleCursorMoved = (e) => {
-    const { selectionStart } = e.target
-    console.log(selectionStart)
   }
 
   const handleCompositionSelect = (e) => {
@@ -60,9 +55,13 @@ export function Composer() {
           style={{ height: '60%', width: '45%', borderRadius: '0.5rem' }}
           value={arrangement}
           onChange={handleUpdate}
+          onSelect={(e) => {
+            console.log('SELECTION',e.target.selectionStart);
+            
+          }}
         />
         <TabSheet
-          onClick={handleCursorMoved}
+          lines={processLines(arrangement, instrument)}
           instrument={instrument}
           arrangement={arrangement}
           index={editorRef.current?.selectionStart}

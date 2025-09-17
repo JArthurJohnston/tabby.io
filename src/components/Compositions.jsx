@@ -6,7 +6,7 @@ export function Compositions() {
   const { compositions, current, setCurrent } = useCompositons()
   const instrument = useInstrument()
   return (
-    <div className='flex row' style={{height: '100%'}}>
+    <div className='flex row full-height'>
       <div className='flex col bordered'>
         {compositions.map((e) => (
           <button

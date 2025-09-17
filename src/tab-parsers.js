@@ -1,4 +1,4 @@
-import { EMPTY_NOTE } from "./instruments"
+import { EMPTY_NOTE } from './instruments'
 
 export function processLines(val, instrument) {
   const lines = val.split('\n')
@@ -10,7 +10,7 @@ export const processNotes = (line, instrument) => {
     let isSharp = false
     let octave = null
     let noteChar = null
-    if(e === '') return EMPTY_NOTE
+    if (e === '') return EMPTY_NOTE
     e.split('').forEach((eachChar) => {
       const octaveVal = parseInt(eachChar)
       if (octaveVal) {
@@ -45,4 +45,40 @@ export function findInstrumentNote(instrument, noteCharacter, octave, isSharp) {
     return foundNotes.find((e) => e.sharp)
   }
   return foundNotes[0]
+}
+
+export function processInput(input, instrument, selStart, selEnd) {
+  const lines = [[]]
+  for (let i = 0; i < input.length; i++) {
+    let isSharp = false
+    let octave = null
+    let noteChar = null
+    const character = input[i]
+    const octaveVal = parseInt(character)
+
+    if (character === ' ' || i >= input.length - 1) {
+      lines[lines.length - 1].push(
+        findInstrumentNote(instrument, noteChar, octave, isSharp),
+      )
+      isSharp = false
+      octave = null
+      noteChar = null
+      continue
+    }
+
+    if (character === '\n') {
+      lines.push([])
+      continue
+    }
+    if (octaveVal) {
+      octave = octaveVal
+      continue
+    }
+    if (character === '#') {
+      isSharp = true
+      continue
+    }
+    noteChar = character
+  }
+  return lines
 }
