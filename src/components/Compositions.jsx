@@ -1,5 +1,6 @@
 import { useCompositons } from '../providers/CompositonContext'
 import { useInstrument } from '../providers/InstrumentContext'
+import { processLines } from '../tab-parsers'
 import { TabSheet } from './TabSheet'
 
 export function Compositions() {
@@ -18,7 +19,11 @@ export function Compositions() {
           </button>
         ))}
       </div>
-      <TabSheet arrangement={current.arrangement} instrument={instrument} />
+      <TabSheet
+        lines={processLines(current.arrangement, instrument)}
+        arrangement={current.arrangement}
+        instrument={instrument}
+      />
     </div>
   )
 }

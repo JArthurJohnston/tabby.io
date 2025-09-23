@@ -5,7 +5,7 @@ export function TabSheet({ lines }) {
   return (
     <div
       style={{ height: '93%', overflowX: 'scroll', width: '50vw' }}
-      className='flex col ml'
+      className='flex col ml full-width'
     >
       {lines.map((eachLine, index) => (
         <div  key={`line-${index}`} className='flex row mb'>

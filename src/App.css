@@ -11,6 +11,27 @@
   align-items: center;
 }
 
+main {
+  max-width: 1300px;
+  border-right: 2px solid;
+}
+
+.bt {
+  border-top: 2px solid;
+}
+
+.bb {
+  border-bottom: 2px solid;
+}
+
+.br {
+  border-right: 2px solid;
+}
+
+.bl {
+  border-left: 2px solid;
+}
+
 .margins {
   margin: 0.5rem;
 }
@@ -70,6 +91,10 @@
 
 .full-height {
   height: 100%;
+}
+
+.half-width {
+  width: 50%;
 }
 
 .highlighted {

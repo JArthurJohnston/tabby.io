@@ -1,4 +1,8 @@
-export function NoteFingerChart({ note, scale = 1, onClick, highlight }) {
+export function NoteFingerChart({
+  note,
+  scale = 1,
+  onClick,
+}) {
   if (!note) {
     return
   }
@@ -6,8 +10,8 @@ export function NoteFingerChart({ note, scale = 1, onClick, highlight }) {
   const computedWidth = 100 * scale
   return (
     <div
-      className='bordered flex col mr'
-      style={{  backgroundColor: `${highlight ? 'lightblue' : ''}` }}
+      className='bordered flex col'
+      style={{margin: '0.1rem'}}
       onClick={onClick}
     >
       {Array.from(fingering)
@@ -31,11 +35,7 @@ export function NoteFingerChart({ note, scale = 1, onClick, highlight }) {
             />
           </svg>
         ))}
-      <p>
-        {noteLabel.toUpperCase()}
-        {sharp && '#'}
-        {octave}
-      </p>
+        <p>{note.abc}</p>
     </div>
   )
 }

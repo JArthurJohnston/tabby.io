@@ -20,7 +20,7 @@ export function ABC_Composer() {
       const { lines } = tune
       setMusicLines(lines || [])
     }
-    const abcMusic = `T:${title}
+    const abcMusic = `T:${title || 'Untiled'}
     K:${instrument.key}
     M:4/4
     L:1/8
@@ -28,47 +28,56 @@ export function ABC_Composer() {
     `
     abcjs.renderAbc('sheet-music', abcMusic, {
       afterParsing,
-      responsive: 'resize'
+      responsive: 'resize',
     })
   }, [music])
 
   return (
-    <div className='flex col full-width full-height bordered align-start'>
+    <div className='flex col full-width full-height align-start'>
       {/* <div className='flex row full-width'>
         <p>{title || 'Untiled'}</p>
       </div> */}
       <div className='flex row full-width full-height'>
-        <div id='sheet-music' style={{overflow: 'scroll'}} />
-        <TabSheet lines={musicLines} />
+        <div className='half-width'>
+          <div id='sheet-music' />
+        </div>
+        <TabSheet lines={musicLines} className='half-width' />
       </div>
       <div className='flex row full-width' style={{ height: '30%' }}>
-        <textarea
-          style={{ width: '40%' }}
-          value={music}
-          onChange={handleUpdate}
-          onSelect={(e) => {
-            // console.log('SELECTION', e.target.selectionStart)
-          }}
-        />
-        <div className='flex row jsb'>
-          {instrument.notes.map((e) => (
-            <NoteFingerChart
-              key={`${instrument.id}-${e.fingering}`}
-              note={e}
-              scale={0.25}
-            />
-          ))}
-        </div>
+        <section className='full-width bt centered flex col'>
+          <heading className='ml'>Editor</heading>
+          <textarea
+            style={{ width: '95%', height: '95%' }}
+            value={music}
+            onChange={handleUpdate}
+            onSelect={(e) => {
+              // console.log('SELECTION', e.target.selectionStart)
+            }}
+          />
+        </section>
+        <section className='flex col jsb bt bl'>
+          <heading className='ml'>Instrument Tabs</heading>
+          <div className='flex row jsb' style={{height: '89%'}}>
+            {instrument.notes.map((e) => (
+              <NoteFingerChart
+                key={`${instrument.id}-${e.fingering}`}
+                note={e}
+                scale={0.25}
+                labelKey='abc'
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   )
 }
 
-export function TabSheet({ lines }) {
+export function TabSheet({ lines, className = '' }) {
   return (
     <div
       style={{ height: '93%', overflowX: 'scroll', width: '50vw' }}
-      className='flex col mt'
+      className={`flex col mt ${className}`}
     >
       {lines.map(({ staff }, index) => (
         <div key={`line-${index}`} className='flex row mb'>

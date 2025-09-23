@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build:songs": "node ./scripts/build-tunes.js",
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:songs && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
