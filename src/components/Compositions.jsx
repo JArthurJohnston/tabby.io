@@ -1,29 +1,28 @@
-import { useCompositons } from '../providers/CompositonContext'
+import React, { useState } from 'react'
+import { ABC_SONGS } from '../arrangements'
+import { useAbc } from '../hooks/useAbc'
 import { useInstrument } from '../providers/InstrumentContext'
-import { processLines } from '../tab-parsers'
-import { TabSheet } from './TabSheet'
+import { ABC_Tabsheet } from './ABC_Tabsheet'
 
 export function Compositions() {
-  const { compositions, current, setCurrent } = useCompositons()
+  const [current, setCurrent] = useState(ABC_SONGS[0])
+  const {lines} = useAbc('music-sheet', current)
   const instrument = useInstrument()
   return (
     <div className='flex row full-height'>
-      <div className='flex col bordered'>
-        {compositions.map((e) => (
-          <button
-            key={`${e.title}-${e.id}`}
-            onClick={() => setCurrent(e)}
-            className={`${current === e ? 'highlighted' : ''} full-width`}
-          >
-            {e.title}
-          </button>
+      <ul>
+        {ABC_SONGS.map((e) => (
+          <li  key={`${e.title}-${e.id}`} className={`${current === e ? 'highlighted' : ''} full-width`}>
+            <button onClick={() => setCurrent(e)}>
+              {e.title}
+            </button>
+          </li>
         ))}
+      </ul>
+      <div className='flex row'>
+        <div id='music-sheet' />
+        <ABC_Tabsheet lines={lines} instrument={instrument} />
       </div>
-      <TabSheet
-        lines={processLines(current.arrangement, instrument)}
-        arrangement={current.arrangement}
-        instrument={instrument}
-      />
     </div>
   )
 }

@@ -1,6 +1,7 @@
-import { NoteFingerChart } from "../NoteFingerChart"
+import React from 'react'
+import { NoteFingerChart } from '../NoteFingerChart'
 
-export function ABC_Tabsheet({lines, className = ''}) {
+export function ABC_Tabsheet({ lines, className = '', instrument }) {
   return (
     <div
       style={{ height: '93%', overflowX: 'scroll', width: '50vw' }}
@@ -14,7 +15,7 @@ export function ABC_Tabsheet({lines, className = ''}) {
                 const { el_type, pitches, duration } = eev
                 if (el_type === 'note')
                   return pitches?.map((eachPitch) => {
-                    const note = NAFlute.notes.find(
+                    const note = instrument.notes.find(
                       (en) => en.abc === eachPitch.name,
                     )
                     return note ? (
