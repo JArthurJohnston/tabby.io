@@ -12,9 +12,9 @@ export function Compositions() {
     <div className='flex row full-height'>
       <ul>
         {ABC_SONGS.map((e) => (
-          <li  key={`${e.title}-${e.id}`} className={`${current === e ? 'highlighted' : ''} full-width`}>
+          <li  key={`${e.name}`} className={`${current === e ? 'highlighted' : ''} full-width`}>
             <button onClick={() => setCurrent(e)}>
-              {e.title}
+              {e.name}
             </button>
           </li>
         ))}
