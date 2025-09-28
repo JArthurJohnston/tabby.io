@@ -6,7 +6,7 @@
 - Main entry: `src/main.jsx` sets up the router and root React component.
 
 ## Architecture & Data Flow
-- **Songs and Arrangements**: ABC files in `public/tunes/` are processed by `scripts/build-tunes.js` into `src/arrangements`.
+- **Songs and Arrangements**: ABC files in `public/tunes/` are processed by `scripts/build-tunes.js` into `src/arrangements/abc-songs.json`.
 - **Compositions**: `src/arrangements/index.js` exports `COMPOSITIONS` and `ABC_SONGS` for use in UI components.
 - **UI Components**: Key components in `src/components/` (e.g., `Compositions.jsx`, `ABC_Tabsheet.jsx`, `TabSheet.jsx`) display and interact with music data.
 - **Hooks & Contexts**: Custom hooks (`src/hooks/useAbc.js`) and context providers (`src/providers/InstrumentContext.jsx`, `CompositonContext.jsx`) manage state and instrument selection.

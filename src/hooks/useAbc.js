@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react'
 import abcjs from 'abcjs'
 
-export function useAbc(elmId = '*', abcContent = '', options = DEFAULT_OPTIONS) {
+export function useAbc(elmId = '*', abcContent = '', options = {}) {
   const [tune, setTune] = useState(null)
+
+  const abcOpts = { ...DEFAULT_OPTIONS, ...options }
 
   useEffect(() => {
     const afterParsing = (parsedTune) => {
+      console.log('parsedTune', parsedTune.lines);
+      
       setTune(parsedTune)
     }
-    const abcMusic = `T:${options.title}
-      K:${options.key}
-      M:${options.meter}
-      L:${options.length}
-      ${abcContent}
-      `
-    abcjs.renderAbc(elmId, abcMusic, {...options, afterParsing})
+    abcjs.renderAbc(elmId, abcContent, {...abcOpts, afterParsing})
   }, [abcContent])
 
   return tune || { lines: []}

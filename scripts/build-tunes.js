@@ -11,7 +11,7 @@ songFiles.forEach((eachFile) => {
   const filePath = path.join(tunesDir, eachFile)
   const contents = fs.readFileSync(filePath, 'utf-8')
   abcSongs.push({
-    name: eachFile,
+    name: eachFile.split('.abc')[0],
     filePath,
     contents,
   })
@@ -19,8 +19,9 @@ songFiles.forEach((eachFile) => {
 
 console.log(`Processed ${abcSongs.length} abc files`);
 
+const sorted = abcSongs.sort((a, b) => a.name >b.name)
 
 fs.writeFileSync(
   path.join('./src/arrangements', 'abc-songs.json'),
-  JSON.stringify(abcSongs, null, 2),
+  JSON.stringify(sorted, null, 2),
 )

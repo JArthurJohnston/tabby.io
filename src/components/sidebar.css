@@ -1,0 +1,97 @@
+/* Sidebar styling and show/hide helpers */
+#sidebar {
+  width: 15rem;
+  border-right: 1px solid white;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.sidebar-toggle {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chev {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0.25rem 0 0 0;
+  padding: 0 0.5rem;
+  overflow: hidden;
+  transition:
+    max-height 260ms ease,
+    opacity 200ms ease,
+    padding 200ms ease;
+  max-height: 1000px; /* large default to allow full list */
+  opacity: 1;
+}
+
+.sidebar-list.collapsed {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.sidebar-item {
+  padding: 0.25rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+  margin: 0.25rem 0.5rem;
+}
+
+.sidebar-item:hover {
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  margin: 0.25rem 0;
+}
+
+/* reveal the full label on hover using a pseudo-element that reads the data-label attr */
+/* .sidebar-item::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  transform: translateY(-2px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 120ms ease,
+    transform 120ms ease;
+  z-index: 1000;
+} */
+
+.sidebar-item:hover::after,
+.sidebar-item:focus-within::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* allow the pseudo-element to escape clipping when hovering */
+.sidebar-item:hover,
+.sidebar-item:focus-within {
+  overflow: visible;
+}
+
+/* allow the entire nav to collapse if needed */
+.sidebar.collapsed {
+  width: 3.5rem;
+}
+
+.sidebar.open {
+  width: 15rem;
+}

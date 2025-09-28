@@ -9,16 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as CompositionsRouteRouteImport } from './routes/compositions.route'
 import { Route as ComposerRouteRouteImport } from './routes/composer.route'
 import { Route as Abc_composerRouteRouteImport } from './routes/abc_composer.route'
 import { Route as IndexRouteRouteImport } from './routes/index.route'
+import { Route as CompositionsCompIdRouteRouteImport } from './routes/compositions/$compId.route'
 
-const CompositionsRouteRoute = CompositionsRouteRouteImport.update({
-  id: '/compositions',
-  path: '/compositions',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ComposerRouteRoute = ComposerRouteRouteImport.update({
   id: '/composer',
   path: '/composer',
@@ -34,50 +29,48 @@ const IndexRouteRoute = IndexRouteRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompositionsCompIdRouteRoute = CompositionsCompIdRouteRouteImport.update({
+  id: '/compositions/$compId',
+  path: '/compositions/$compId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRouteRoute
   '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
-  '/compositions': typeof CompositionsRouteRoute
+  '/compositions/$compId': typeof CompositionsCompIdRouteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRouteRoute
   '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
-  '/compositions': typeof CompositionsRouteRoute
+  '/compositions/$compId': typeof CompositionsCompIdRouteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRouteRoute
   '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
-  '/compositions': typeof CompositionsRouteRoute
+  '/compositions/$compId': typeof CompositionsCompIdRouteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/abc_composer' | '/composer' | '/compositions'
+  fullPaths: '/' | '/abc_composer' | '/composer' | '/compositions/$compId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/abc_composer' | '/composer' | '/compositions'
-  id: '__root__' | '/' | '/abc_composer' | '/composer' | '/compositions'
+  to: '/' | '/abc_composer' | '/composer' | '/compositions/$compId'
+  id: '__root__' | '/' | '/abc_composer' | '/composer' | '/compositions/$compId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRouteRoute: typeof IndexRouteRoute
   Abc_composerRouteRoute: typeof Abc_composerRouteRoute
   ComposerRouteRoute: typeof ComposerRouteRoute
-  CompositionsRouteRoute: typeof CompositionsRouteRoute
+  CompositionsCompIdRouteRoute: typeof CompositionsCompIdRouteRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/compositions': {
-      id: '/compositions'
-      path: '/compositions'
-      fullPath: '/compositions'
-      preLoaderRoute: typeof CompositionsRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/composer': {
       id: '/composer'
       path: '/composer'
@@ -99,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compositions/$compId': {
+      id: '/compositions/$compId'
+      path: '/compositions/$compId'
+      fullPath: '/compositions/$compId'
+      preLoaderRoute: typeof CompositionsCompIdRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,7 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRouteRoute: IndexRouteRoute,
   Abc_composerRouteRoute: Abc_composerRouteRoute,
   ComposerRouteRoute: ComposerRouteRoute,
-  CompositionsRouteRoute: CompositionsRouteRoute,
+  CompositionsCompIdRouteRoute: CompositionsCompIdRouteRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
