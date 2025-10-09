@@ -20,6 +20,8 @@ export default defineConfig([
       'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
+      'no-unused-vars': 'error',
+      'unused-imports/no-unused-imports': 'warn',
     },
   },
 ])

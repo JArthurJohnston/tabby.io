@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import abcjs from 'abcjs'
 
 export function useAbc(elmId = '*', abcContent = '', options = {}) {
@@ -8,8 +8,6 @@ export function useAbc(elmId = '*', abcContent = '', options = {}) {
 
   useEffect(() => {
     const afterParsing = (parsedTune) => {
-      console.log('parsedTune', parsedTune.lines);
-      
       setTune(parsedTune)
     }
     abcjs.renderAbc(elmId, abcContent, {...abcOpts, afterParsing})
@@ -19,9 +17,5 @@ export function useAbc(elmId = '*', abcContent = '', options = {}) {
 }
 
 const DEFAULT_OPTIONS = {
-  meter: '4/4',
-  length: '1/8',
-  key: 'D',
-  title: 'Untitled',
   responsive: 'resize'
 }
