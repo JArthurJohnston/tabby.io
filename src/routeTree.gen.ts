@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ComposerRouteRouteImport } from './routes/composer.route'
 import { Route as Abc_composerRouteRouteImport } from './routes/abc_composer.route'
 import { Route as IndexRouteRouteImport } from './routes/index.route'
+import { Route as InstrumentsInstrumentIdRouteRouteImport } from './routes/instruments/$instrumentId.route'
 import { Route as CompositionsCompIdRouteRouteImport } from './routes/compositions/$compId.route'
 
 const ComposerRouteRoute = ComposerRouteRouteImport.update({
@@ -29,6 +30,12 @@ const IndexRouteRoute = IndexRouteRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InstrumentsInstrumentIdRouteRoute =
+  InstrumentsInstrumentIdRouteRouteImport.update({
+    id: '/instruments/$instrumentId',
+    path: '/instruments/$instrumentId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CompositionsCompIdRouteRoute = CompositionsCompIdRouteRouteImport.update({
   id: '/compositions/$compId',
   path: '/compositions/$compId',
@@ -40,12 +47,14 @@ export interface FileRoutesByFullPath {
   '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
   '/compositions/$compId': typeof CompositionsCompIdRouteRoute
+  '/instruments/$instrumentId': typeof InstrumentsInstrumentIdRouteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRouteRoute
   '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
   '/compositions/$compId': typeof CompositionsCompIdRouteRoute
+  '/instruments/$instrumentId': typeof InstrumentsInstrumentIdRouteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +62,30 @@ export interface FileRoutesById {
   '/abc_composer': typeof Abc_composerRouteRoute
   '/composer': typeof ComposerRouteRoute
   '/compositions/$compId': typeof CompositionsCompIdRouteRoute
+  '/instruments/$instrumentId': typeof InstrumentsInstrumentIdRouteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/abc_composer' | '/composer' | '/compositions/$compId'
+  fullPaths:
+    | '/'
+    | '/abc_composer'
+    | '/composer'
+    | '/compositions/$compId'
+    | '/instruments/$instrumentId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/abc_composer' | '/composer' | '/compositions/$compId'
-  id: '__root__' | '/' | '/abc_composer' | '/composer' | '/compositions/$compId'
+  to:
+    | '/'
+    | '/abc_composer'
+    | '/composer'
+    | '/compositions/$compId'
+    | '/instruments/$instrumentId'
+  id:
+    | '__root__'
+    | '/'
+    | '/abc_composer'
+    | '/composer'
+    | '/compositions/$compId'
+    | '/instruments/$instrumentId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +93,7 @@ export interface RootRouteChildren {
   Abc_composerRouteRoute: typeof Abc_composerRouteRoute
   ComposerRouteRoute: typeof ComposerRouteRoute
   CompositionsCompIdRouteRoute: typeof CompositionsCompIdRouteRoute
+  InstrumentsInstrumentIdRouteRoute: typeof InstrumentsInstrumentIdRouteRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/instruments/$instrumentId': {
+      id: '/instruments/$instrumentId'
+      path: '/instruments/$instrumentId'
+      fullPath: '/instruments/$instrumentId'
+      preLoaderRoute: typeof InstrumentsInstrumentIdRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compositions/$compId': {
       id: '/compositions/$compId'
       path: '/compositions/$compId'
@@ -107,6 +141,7 @@ const rootRouteChildren: RootRouteChildren = {
   Abc_composerRouteRoute: Abc_composerRouteRoute,
   ComposerRouteRoute: ComposerRouteRoute,
   CompositionsCompIdRouteRoute: CompositionsCompIdRouteRoute,
+  InstrumentsInstrumentIdRouteRoute: InstrumentsInstrumentIdRouteRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

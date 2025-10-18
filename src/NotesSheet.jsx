@@ -2,7 +2,7 @@ import { NoteFingerChart } from './NoteFingerChart'
 import { useInstrument } from './providers/InstrumentContext'
 
 export function NotesSheet() {
-  const instrument = useInstrument()
+  const {current: instrument} = useInstrument()
 
   return (
     <div className='flex row full-width jsb'>

@@ -13,7 +13,7 @@ export function Composer() {
     updateArrangement,
     updateTitle,
   } = useCompositons()
-  const instrument = useInstrument()
+  const { current: instrument } = useInstrument()
   const editorRef = useRef()
 
   const handleUpdate = (e) => {
@@ -40,7 +40,11 @@ export function Composer() {
           value={title}
           onChange={(e) => updateTitle(e.target.value)}
         />
-        <select className='mr' id='compositions-select' onChange={handleCompositionSelect}>
+        <select
+          className='mr'
+          id='compositions-select'
+          onChange={handleCompositionSelect}
+        >
           {compositions.map((e) => (
             <option key={e.id} value={e.id}>
               {e.title}
@@ -56,8 +60,7 @@ export function Composer() {
           value={arrangement}
           onChange={handleUpdate}
           onSelect={(e) => {
-            console.log('SELECTION',e.target.selectionStart);
-            
+            console.log('SELECTION', e.target.selectionStart)
           }}
         />
         <TabSheet

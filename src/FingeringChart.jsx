@@ -2,15 +2,17 @@ import './fingering-chart.css'
 import { useInstrument } from './providers/InstrumentContext'
 
 export function FingeringChart() {
-  const instrument = useInstrument()
+  const { current } = useInstrument()
 
   return (
     <div className='bordered flex col mr'>
-      {instrument.fingering
+      {current.fingering
         .slice()
         .reverse()
         .map((e, index) => (
-          <Hole key={`${instrument.id}-${e}-${index}`} scale={0.7}>{e}</Hole>
+          <Hole key={`${current.id}-${e}-${index}`} scale={0.7}>
+            {e}
+          </Hole>
         ))}
       <WhistleHole />
     </div>
