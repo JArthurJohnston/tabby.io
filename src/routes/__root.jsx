@@ -1,13 +1,12 @@
 import '../App.css'
 import { createRootRoute, Outlet } from '@tanstack/react-router'
-import { InstrumentContext } from '../providers/InstrumentContext'
-import { NAFlute } from '../instruments'
+import { InstrumentProvider } from '../providers/InstrumentContext'
 import { CompositionsProvider } from '../providers/CompositonContext'
 import { Sidebar } from '../components/Sidebar'
 
 export const Route = createRootRoute({
   component: () => (
-    <InstrumentContext value={NAFlute}>
+    <InstrumentProvider>
       <CompositionsProvider>
         <div className='flex col full-width'>
           <header
@@ -24,6 +23,6 @@ export const Route = createRootRoute({
           </div>
         </div>
       </CompositionsProvider>
-    </InstrumentContext>
+    </InstrumentProvider>
   ),
 })

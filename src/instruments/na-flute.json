@@ -1,0 +1,144 @@
+{
+  "id": "na-flute-d",
+  "name": "Native Flute in D",
+  "holes": 6,
+  "fingering": [
+    "LEFT_INDEX",
+    "LEFT_MIDDLE",
+    "LEFT_RING",
+    "RIGHT_INDEX",
+    "RIGHT_MIDDLE",
+    "RIGHT_RING"
+  ],
+  "key": "D",
+  "notes": [
+    {
+      "note": "D",
+      "octave": 5,
+      "fingering": "111111",
+      "sharp": false,
+      "flat": false,
+      "abc": "D"
+    },
+    {
+      "note": "E",
+      "octave": 5,
+      "fingering": "111112",
+      "sharp": false,
+      "flat": false,
+      "abc": "E"
+    },
+    {
+      "note": "F",
+      "octave": 5,
+      "fingering": "111110",
+      "sharp": false,
+      "flat": false,
+      "abc": "F"
+    },
+    {
+      "note": "F",
+      "octave": 5,
+      "fingering": "111101",
+      "sharp": true,
+      "flat": false,
+      "abc": "^F"
+    },
+    {
+      "note": "G",
+      "octave": 5,
+      "fingering": "111100",
+      "sharp": false,
+      "flat": false,
+      "abc": "G"
+    },
+    {
+      "note": "G",
+      "octave": 5,
+      "fingering": "111010",
+      "sharp": true,
+      "flat": false,
+      "abc": "^G"
+    },
+    {
+      "note": "A",
+      "octave": 5,
+      "fingering": "111000",
+      "sharp": false,
+      "flat": false,
+      "abc": "A"
+    },
+    {
+      "note": "A",
+      "octave": 5,
+      "fingering": "110100",
+      "sharp": true,
+      "flat": false,
+      "abc": "^A"
+    },
+    {
+      "note": "B",
+      "octave": 5,
+      "fingering": "110000",
+      "sharp": false,
+      "flat": false,
+      "abc": "B"
+    },
+    {
+      "note": "C",
+      "octave": 5,
+      "fingering": "101000",
+      "sharp": false,
+      "flat": false,
+      "abc": "c"
+    },
+    {
+      "note": "C",
+      "octave": 5,
+      "fingering": "100000",
+      "sharp": true,
+      "flat": false,
+      "abc": "^c"
+    },
+    {
+      "note": "D",
+      "octave": 6,
+      "fingering": "001000",
+      "sharp": false,
+      "flat": false,
+      "abc": "d"
+    },
+    {
+      "note": "D",
+      "octave": 6,
+      "fingering": "001111",
+      "sharp": true,
+      "flat": false,
+      "abc": "^d"
+    },
+    {
+      "note": "C",
+      "octave": 6,
+      "fingering": "100001",
+      "sharp": false,
+      "flat": false,
+      "abc": "c"
+    },
+    {
+      "note": "C",
+      "octave": 6,
+      "fingering": "011000",
+      "sharp": true,
+      "flat": false,
+      "abc": "^c"
+    },
+    {
+      "note": "F",
+      "octave": 6,
+      "fingering": "001110",
+      "sharp": false,
+      "flat": false,
+      "abc": "f"
+    }
+  ]
+}

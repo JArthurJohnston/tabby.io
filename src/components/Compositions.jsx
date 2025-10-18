@@ -11,7 +11,7 @@ export function Compositions() {
 
   const { name, contents, filePath } = ABC_SONGS.find((s) => s.name === compId)
 
-  const instrument = useInstrument()
+  const {current: instrument} = useInstrument()
 
   return (
     <div className='flex col full-height'>

@@ -1,0 +1,97 @@
+{
+    "id": "penny-whistle-d",
+    "name": "Penny Whistle in D",
+    "holes": 6,
+    "fingering": [
+        "LEFT_INDEX",
+        "LEFT_MIDDLE",
+        "LEFT_RING",
+        "RIGHT_INDEX",
+        "RIGHT_MIDDLE",
+        "RIGHT_RING"
+    ],
+    "key": "D",
+    "notes": [
+        {
+            "note": "D",
+            "octave": 5,
+            "fingering": "111111",
+            "sharp": false,
+            "flat": false,
+            "abc": "D",
+            "overblow": false
+        },
+        {
+            "note": "E",
+            "octave": 5,
+            "fingering": "111110",
+            "sharp": false,
+            "flat": false,
+            "abc": "E",
+            "overblow": false
+        },
+        {
+            "note": "F#",
+            "octave": 5,
+            "fingering": "111100",
+            "sharp": true,
+            "flat": false,
+            "abc": "^F",
+            "overblow": false
+        },
+        {
+            "note": "G",
+            "octave": 5,
+            "fingering": "111000",
+            "sharp": false,
+            "flat": false,
+            "abc": "G",
+            "overblow": false
+        },
+        {
+            "note": "A",
+            "octave": 5,
+            "fingering": "110000",
+            "sharp": false,
+            "flat": false,
+            "abc": "A",
+            "overblow": false
+        },
+        {
+            "note": "B",
+            "octave": 5,
+            "fingering": "100000",
+            "sharp": false,
+            "flat": false,
+            "abc": "B",
+            "overblow": false
+        },
+        {
+            "note": "C",
+            "octave": 6,
+            "fingering": "011000",
+            "sharp": false,
+            "flat": false,
+            "abc": "C",
+            "overblow": false
+        },
+        {
+            "note": "C#",
+            "octave": 6,
+            "fingering": "000000",
+            "sharp": true,
+            "flat": false,
+            "abc": "^C",
+            "overblow": false
+        },
+        {
+            "note": "D",
+            "octave": 6,
+            "fingering": "011111",
+            "sharp": false,
+            "flat": false,
+            "abc": "d",
+            "overblow": false
+        }
+    ]
+}

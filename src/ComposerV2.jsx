@@ -3,7 +3,7 @@ import { useInstrument } from './providers/InstrumentContext'
 import { NoteFingerChart } from './NoteFingerChart'
 
 export function Composer() {
-  const instrument = useInstrument()
+  const {current: instrument} = useInstrument()
   const [composition, setComposition] = useState('')
   const octaves = [5,6]
 

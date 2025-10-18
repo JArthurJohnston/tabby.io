@@ -1,0 +1,103 @@
+{
+  "id": "ocarina-5-d",
+  "name": "5-Hole Ocarina in D",
+  "holes": 5,
+  "fingering": [
+    "LEFT_INDEX",
+    "LEFT_MIDDLE",
+    "LEFT_RING",
+    "RIGHT_INDEX",
+    "RIGHT_MIDDLE"
+  ],
+  "key": "D",
+  "notes": [
+    {
+      "note": "D",
+      "octave": 5,
+      "fingering": "11111",
+      "sharp": false,
+      "flat": false,
+      "abc": "D"
+    },
+    {
+      "note": "E",
+      "octave": 5,
+      "fingering": "11110",
+      "sharp": false,
+      "flat": false,
+      "abc": "E"
+    },
+    {
+      "note": "F#",
+      "octave": 5,
+      "fingering": "11100",
+      "sharp": true,
+      "flat": false,
+      "abc": "^F"
+    },
+    {
+      "note": "G",
+      "octave": 5,
+      "fingering": "11000",
+      "sharp": false,
+      "flat": false,
+      "abc": "G"
+    },
+    {
+      "note": "A",
+      "octave": 5,
+      "fingering": "10000",
+      "sharp": false,
+      "flat": false,
+      "abc": "A"
+    },
+    {
+      "note": "B",
+      "octave": 5,
+      "fingering": "00000",
+      "sharp": false,
+      "flat": false,
+      "abc": "B"
+    },
+    {
+      "note": "c",
+      "octave": 6,
+      "fingering": "00001",
+      "sharp": false,
+      "flat": false,
+      "abc": "c"
+    },
+    {
+      "note": "d",
+      "octave": 6,
+      "fingering": "00010",
+      "sharp": false,
+      "flat": false,
+      "abc": "d"
+    },
+    {
+      "note": "e",
+      "octave": 6,
+      "fingering": "00110",
+      "sharp": false,
+      "flat": false,
+      "abc": "e"
+    },
+    {
+      "note": "f#",
+      "octave": 6,
+      "fingering": "00100",
+      "sharp": true,
+      "flat": false,
+      "abc": "^f"
+    },
+    {
+      "note": "g",
+      "octave": 6,
+      "fingering": "00000",
+      "sharp": false,
+      "flat": false,
+      "abc": "g"
+    }
+  ]
+}
