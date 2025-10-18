@@ -14,7 +14,7 @@ export function Compositions() {
   const instrument = useInstrument()
 
   return (
-    <div className='flex column full-height'>
+    <div className='flex col full-height'>
       <div style={{ marginBottom: '1rem' }}>
         <label htmlFor='view-select'>View: </label>
         <select
