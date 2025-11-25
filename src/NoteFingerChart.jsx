@@ -2,20 +2,21 @@ export function NoteFingerChart({
   note,
   scale = 1,
   onClick,
+  showLabel = false,
 }) {
   if (!note) {
     return
   }
-  const { sharp, fingering, note: noteLabel, octave } = note
+  const { sharp, fingering, note: noteLabel, octave, overblow } = note
   const computedWidth = 100 * scale
   return (
     <div
-      className='bordered flex col'
-      style={{margin: '0.1rem'}}
+      className='flex col'
+      style={{margin: '0.1rem', alignItems: 'center'}}
       onClick={onClick}
     >
       {Array.from(fingering)
-        .reverse()
+        // .reverse()
         .map((e, index) => (
           <svg
             key={`${note}-${e}-${index}`}
@@ -35,7 +36,10 @@ export function NoteFingerChart({
             />
           </svg>
         ))}
-        <p>{note.abc}</p>
+        {/* <p>{note.abc}</p> */}
+        {overblow && <p style={{margin: 0}}>*</p>}
+        {showLabel && <p style={{margin: 0}}>{noteLabel}</p>}
+
     </div>
   )
 }

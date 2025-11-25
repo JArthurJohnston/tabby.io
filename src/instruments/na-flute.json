@@ -2,14 +2,7 @@
   "id": "na-flute-d",
   "name": "Native Flute in D",
   "holes": 6,
-  "fingering": [
-    "LEFT_INDEX",
-    "LEFT_MIDDLE",
-    "LEFT_RING",
-    "RIGHT_INDEX",
-    "RIGHT_MIDDLE",
-    "RIGHT_RING"
-  ],
+  "fingering": [0, 1, 2, 3, 4, 5],
   "key": "D",
   "notes": [
     {

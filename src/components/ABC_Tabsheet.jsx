@@ -46,9 +46,6 @@ function BarLine() {
       |
       <br />
       |
-      <br />
-      |
-      <br />|
     </div>
   )
 }
@@ -63,9 +60,6 @@ function EmptyNote() {
       -
       <br />
       -
-      <br />
-      -
-      <br />-
     </div>
   )
 }

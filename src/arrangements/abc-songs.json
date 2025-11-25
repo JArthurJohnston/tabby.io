@@ -1,8 +1,8 @@
 [
-    {
-    "name": "the-shire",
-    "filePath": "public/tunes/the-shire.abc",
-    "contents": "T: The Shire\nM: 4/4\nC: Howard Shore\nL: 1/8\nK: D\nFGA2c2A2G2F2\nAcD2^d2^c2c2^AAG2|\nFGA2c2A2G2FGF2\nAcD2^cC2A2G2FGF2\n"
+  {
+    "name": "ode-to-joy",
+    "filePath": "public/tunes/ode-to-joy.abc",
+    "contents": "T: Ode to Joy\nM: 4/4\nL: 1/8\nC: Beethoven\nK: D\nBBcddcBA|GGAB2B2AA|\n|BBc^c2^c2c2BA2GGABAGG\nAABG|ABcBG|ABcBAG2G2\n\n"
   },
   {
     "name": "once-upon-a-december",
@@ -10,15 +10,14 @@
     "contents": "T: Once Upon a December\nM: 4/4\nL: 1/8\nK: D\n^FG^F2AGE2|GE^F2DDE^F|\n^FG^F|^FBE|cABAG^FGE|\nAGAGG^F^F|G^F^FAGG^F^F|\nA2GA2GG2^F^F|ED2ED2GE2\nBcB2B^FA|cABAG^FGE2\n"
   },
   {
-    "name": "ode-to-joy",
-    "filePath": "public/tunes/ode-to-joy.abc",
-    "contents": "T: Ode to Joy\nBBcddcBA|GGAB2B2AA|\n|BBc^c2^c2c2BA2GGABAGG\nAABG|ABcBG|ABcBAG2G2\n\n"
-  },
-
-  {
     "name": "place-ill-return",
     "filePath": "public/tunes/place-ill-return.abc",
-    "contents": "T: The place Ill Return to Someday\nM: 4/4\nC: Nobuo Uematsu\nL: 1/8\nK: D\n"
+    "contents": "T: The place Ill Return to Someday\nM: 4/4\nC: Nobuo Uematsu\nL: 1/8\nK: D\nE ^FGAB2|^cd^c BA2B G^FED\nE ^FGAB2|^cd^c BBAB2\nE ^FGAB2|^cd^cBA2BG^FED"
+  },
+  {
+    "name": "the-shire",
+    "filePath": "public/tunes/the-shire.abc",
+    "contents": "T: The Shire\nM: 4/4\nC: Howard Shore\nL: 1/8\nK: D\nFGA2c2A2G2F2\nAcD2^d2^c2c2^AAG2|\nFGA2c2A2G2FGF2\nAcD2^cC2A2G2FGF2\n"
   },
   {
     "name": "the-wellerman",
@@ -28,6 +27,6 @@
   {
     "name": "whistle-stop",
     "filePath": "public/tunes/whistle-stop.abc",
-    "contents": "T: Whistle Stop\nK: D\nM: 4/4\nL: 1/8\n^cB^c|A A F F D|^cB^c|A GA B2|\n^cB^c A A A2^d2BA2|A GAB^cA2"
+    "contents": "T: Whistle Stop\nK: D\nM: 4/4\nL: 1/8\n^cB^c|A A F F D|^cB^c|A GA B2|\n^cB^c A A A2^d2^cA2|A GAB^cA2\n"
   }
 ]
