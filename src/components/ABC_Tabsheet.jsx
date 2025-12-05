@@ -3,7 +3,7 @@ import { NoteFingerChart } from '../NoteFingerChart'
 export function ABC_Tabsheet({ lines, className = '', instrument }) {
   return (
     <div
-      style={{ height: '93%', overflowX: 'scroll', width: '50vw' }}
+      style={{ height: '93%', overflowX: 'scroll', width: '50%' }}
       className={`flex col mt ${className}`}
     >
       {lines.map(({ staff }, index) => (

@@ -12,7 +12,7 @@
   {
     "name": "place-ill-return",
     "filePath": "public/tunes/place-ill-return.abc",
-    "contents": "T: The place Ill Return to Someday\nM: 4/4\nC: Nobuo Uematsu\nL: 1/8\nK: D\nE ^FGAB2|^cd^c BA2B G^FED\nE ^FGAB2|^cd^c BBAB2\nE ^FGAB2|^cd^cBA2BG^FED"
+    "contents": "T: The place Ill Return to Someday\nM: 4/4\nC: Nobuo Uematsu\nL: 1/8\nK: D\nE2^FGAB2|^cd^c BA2B G^FED\nE2^FGAB2|^cd^c BBAB2\nE2^FGAB2|^cd^cBA2BG^FED\nG2GAG^FED2 B^F2 AG^F^F^FE2\ne2Bed2 ^cBAB2 GAB^c2d2d\ne2Bed2 ^cBA2 GB^FEDE4\n"
   },
   {
     "name": "the-shire",
