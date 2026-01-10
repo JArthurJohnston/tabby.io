@@ -4,10 +4,9 @@ import { useState } from 'react'
 import './sidebar.css'
 
 export function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true)
   return (
     <nav
-      className={`full-height sidebar ${isOpen ? 'open' : 'collapsed'}`}
+      className={`full-height sidebar `}
       id='sidebar'
     >
       <ul className='sidebar-list'>
@@ -17,33 +16,58 @@ export function Sidebar() {
         <li className='sidebar-item' style={{ display: 'block' }}>
           <Link to='/abc_composer'>ABC</Link>
         </li>
-        <li className=''>
-          <button
-            type='button'
-            className='sidebar-toggle sidebar-item '
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-            aria-controls='compositions-list'
-          >
-            Compositions <span className='chev'>{isOpen ? '▾' : '▸'}</span>
-          </button>
-          <ul
-            id='compositions-list'
-            className={`sidebar-list ${isOpen ? 'open' : 'collapsed'}`}
-          >
-            {ABC_SONGS.map((song) => (
-              <li
-                className='sidebar-item'
-                key={`${song.name}-sidebar-item`}
-                data-label={song.name}
-                tabIndex={0}
-              >
-                <Link to={`/compositions/${song.name}`}>{song.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </li>
+        <CollapsableList title='Compositions'>
+          {ABC_SONGS.map((song) => (
+            <li
+              className='sidebar-item'
+              key={`${song.name}-sidebar-item`}
+              data-label={song.name}
+              tabIndex={0}
+            >
+              <Link to={`/compositions/${song.name}`}>{song.name}</Link>
+            </li>
+          ))}
+        </CollapsableList>
+        <CollapsableList title='Instruments'>
+        </CollapsableList>
+        <CollapsableList title='Helpful Links'>
+          <li className='sidebar-item'>
+            <a target='_blank' href='https://tuner-online.com/'>Tuner</a>
+          </li>
+          <li className='sidebar-item'>
+            <a target='_blank' href='https://abcnotation.com/'>ABC Documentation</a>
+          </li>
+        </CollapsableList>
       </ul>
     </nav>
+  )
+}
+
+function CollapsableList({ title, children }) {
+  const [isOpen, setIsOpen] = useState(true)
+
+  return (
+    <li className=''>
+      <button
+        type='button'
+        className='sidebar-toggle sidebar-item '
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls='compositions-list'
+      >
+        {title} <span className='chev'>{isOpen ? '▾' : '▸'}</span>
+      </button>
+      <ul
+        id='compositions-list'
+        className={`sidebar-list ${isOpen ? 'open' : 'collapsed'}`}
+      >
+        <ul
+          id='compositions-list'
+          className={`sidebar-list ${isOpen ? 'open' : 'collapsed'}`}
+        >
+          {children}
+        </ul>
+      </ul>
+    </li>
   )
 }

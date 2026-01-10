@@ -58,6 +58,15 @@
             "overblow": false
         },
         {
+            "note": "A",
+            "octave": 5,
+            "fingering": "120000",
+            "sharp": true,
+            "flat": false,
+            "abc": "^A",
+            "overblow": false
+        },
+        {
             "note": "B",
             "octave": 5,
             "fingering": "100000",
@@ -91,7 +100,7 @@
             "sharp": false,
             "flat": false,
             "abc": "d",
-            "overblow": true
+            "overblow": false
         },
         {
             "note": "E",

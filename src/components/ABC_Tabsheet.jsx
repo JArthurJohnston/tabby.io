@@ -1,9 +1,10 @@
+import React from 'react'
 import { NoteFingerChart } from '../NoteFingerChart'
 
 export function ABC_Tabsheet({ lines, className = '', instrument }) {
   return (
     <div
-      style={{ height: '93%', overflowX: 'scroll', width: '50%' }}
+      style={{ height: '93%', overflowX: 'scroll', width: '50%', marginLeft: '1rem' }}
       className={`flex col mt ${className}`}
     >
       {lines.map(({ staff }, index) => (
@@ -13,17 +14,17 @@ export function ABC_Tabsheet({ lines, className = '', instrument }) {
               eachVoice.map((eev) => {
                 const { el_type, pitches, duration } = eev
                 if (el_type === 'note')
-                  return pitches?.map((eachPitch) => {
+                  return pitches?.map((eachPitch, pitchIndex) => {
                     const note = instrument.notes.find(
                       (en) => en.abc === eachPitch.name,
                     )
                     return note ? (
-                      <>
+                      <React.Fragment key={`${eachPitch.name}-${pitchIndex}`}>
                         <NoteFingerChart note={note} scale={0.15} />
                         {duration > 0.125 && <EmptyNote />}
-                      </>
+                      </React.Fragment>
                     ) : (
-                      <p>?</p>
+                      <p key={`${eachPitch.name}-${pitchIndex}`}>?</p>
                     )
                   })
                 if (el_type === 'bar') return <BarLine />

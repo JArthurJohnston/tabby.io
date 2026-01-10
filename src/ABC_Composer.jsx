@@ -8,7 +8,7 @@ export function ABC_Composer() {
   const [music, setMusic] = useState('')
   const [musicLines, setMusicLines] = useState([])
 
-  const instrument = PennyWhistle_D
+  const instrument = NAFlute_D
 
   const handleUpdate = (e) => {
     const val = e.target.value
@@ -20,13 +20,13 @@ export function ABC_Composer() {
       const { lines } = tune
       setMusicLines(lines || [])
     }
-    const abcMusic = `T:${title || 'Untiled'}
-    K:${instrument.key}
-    M:4/4
-    L:1/8
-    ${music}
-    `
-    abcjs.renderAbc('sheet-music', abcMusic, {
+    // const abcMusic = `T:${title || 'Untiled'}
+    // K:${instrument.key}
+    // M:4/4
+    // L:1/8
+    // ${music}
+    // `
+    abcjs.renderAbc('sheet-music', music, {
       afterParsing,
       responsive: 'resize',
     })
@@ -43,11 +43,11 @@ export function ABC_Composer() {
         </div>
         <TabSheet lines={musicLines} className='half-width' instrument={instrument} />
       </div>
-      <div className='flex row full-width' style={{ height: '30%' }}>
+      <div className='flex row full-width' style={{ height: '35%' }}>
         <section className='full-width bt centered flex col'>
           <heading className='ml'>Editor</heading>
           <textarea
-            style={{ width: '95%', height: '95%' }}
+            style={{ width: '95%', height: '90%' }}
             value={music}
             onChange={handleUpdate}
             onSelect={(e) => {
@@ -137,3 +137,9 @@ function EmptyNote() {
     </div>
   )
 }
+
+// claim # 402257110
+
+// adjuster
+// cornelia johnson
+// 313 490 6327

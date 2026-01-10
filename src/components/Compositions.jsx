@@ -4,6 +4,9 @@ import { useInstrument } from '../providers/InstrumentContext'
 import { getRouteApi } from '@tanstack/react-router'
 import { SheetMusic } from './music-views/SheetMusic'
 import { Tabsheet } from './music-views/TabSheet'
+import { Select } from './Select'
+import { NoteFingerChart } from '../NoteFingerChart'
+import { Circle } from '../Circle'
 
 export function Compositions() {
   const { compId } = getRouteApi().useParams()
@@ -12,36 +15,44 @@ export function Compositions() {
   const { name, contents, filePath } = ABC_SONGS.find((s) => s.name === compId)
 
   const { current: instrument, instruments, changeInstrument } = useInstrument()
+  const notes = [...instrument.notes]
 
   return (
     <div>
-      <div style={{ marginBottom: '1rem' }}>
-        <label htmlFor='view-select'>View: </label>
-        <select
+      <div
+        id='compositiom-menu'
+        style={{
+          marginBottom: '1rem',
+          borderBottom: '1px solid #ccc',
+          padding: '0.5rem',
+        }}
+      >
+        <Select
           id='view-select'
-          style={{ flex: 1 }}
           value={view}
           onChange={(e) => setView(e.target.value)}
-        >
-          <option value='sheet'>Sheet Music</option>
-          <option value='tabsheet'>Tabsheet</option>
-          <option value='both'>Both</option>
-        </select>
-        <label>Instrument: </label>
-        <select
+          options={[
+            { value: 'sheet', label: 'Sheet Music' },
+            { value: 'tabsheet', label: 'Tabsheet' },
+            { value: 'both', label: 'Both' },
+          ]}
+          label='View'
+        />
+        <Select
           id='instrument-select'
-          style={{ flex: 1 }}
-          value={view}
+          label='Instrument'
           onChange={(e) => changeInstrument(e.target.value)}
-        >
-          {instruments.map((inst) => (
-            <option key={inst.id} value={inst.id}>
-              {inst.name}
-            </option>
-          ))}
-        </select>
+          options={instruments.map((e) => ({ value: e.id, label: e.name }))}/>
+          <a
+            href={filePath}
+            target='_blank'
+            rel='noopener noreferrer'
+            style={{ marginLeft: '1rem' }}
+          >
+            View File
+          </a>
       </div>
-      <div className='flex column full-height'>
+      <div className='flex column' style={{ minHeight: '65vh' }}>
         <div className='flex row full-width'>
           {(view === 'sheet' || view === 'both') && (
             <SheetMusic contents={contents} title={name} />
@@ -55,6 +66,50 @@ export function Compositions() {
           )}
         </div>
       </div>
+      <section
+        className='flex row full-width jsb'
+        style={{
+          height: '15%',
+          borderTop: '1px solid #ccc',
+          marginTop: '1rem',
+          paddingTop: '1rem',
+        }}
+      >
+        <textarea
+          style={{ minWidth: '20rem', margin: '0.5rem', height: '100%' }}
+          className='flex'
+          value={contents}
+        />
+        <div className='flex col fg2'>
+          <div className='flex row jse'>
+            {notes.map((note, idx) => (
+              <NoteFingerChart
+                scale={0.15}
+                key={`${idx}-${note.fingering}-chart`}
+                note={note}
+                showLabel
+              />
+            ))}
+          </div>
+          <div className='flex jse'>
+            <div className='flex centered'>
+              <p>Covered Hole = </p>
+              <Circle scale={0.2} fill='white' />
+            </div>
+            <div className='flex centered'>
+              <p>Open Hole = </p>
+              <Circle scale={0.2} fill='black' />
+            </div>
+            <div className='flex centered'>
+              <p>Half Covered Hole = </p>
+              <Circle scale={0.2} fill='grey' />
+            </div>
+            <div className='flex centered'>
+              <p>* = Overblow</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

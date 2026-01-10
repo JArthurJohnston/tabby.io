@@ -60,6 +60,10 @@ main {
   display: flex;
 }
 
+.fg2 {
+  flex-grow: 2;
+}
+
 .col {
   flex-direction: column;
 }
@@ -70,6 +74,10 @@ main {
 
 .jsb {
   justify-content: space-between;
+}
+
+.jse {
+  justify-content: space-evenly;
 }
 
 .jsf {
