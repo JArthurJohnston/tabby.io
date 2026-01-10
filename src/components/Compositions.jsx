@@ -43,17 +43,17 @@ export function Compositions() {
           id='instrument-select'
           label='Instrument'
           onChange={(e) => changeInstrument(e.target.value)}
-          options={instruments.map((e) => ({ value: e.id, label: e.name }))}/>
-          <a
-            href={filePath}
-            target='_blank'
-            rel='noopener noreferrer'
-            style={{ marginLeft: '1rem' }}
-            download
-          >
-            Download
-          </a>
-          <PrintButton />
+          options={instruments.map((e) => ({ value: e.id, label: e.name }))}
+        />
+        <a
+          href={filePath}
+          target='_blank'
+          rel='noopener noreferrer'
+          style={{ marginLeft: '1rem' }}
+          download
+        >
+          Download
+        </a>
       </div>
       <div className='flex column' style={{ minHeight: '65vh' }}>
         <div className='flex row full-width'>
@@ -79,7 +79,7 @@ export function Compositions() {
         }}
       >
         <textarea
-          style={{ minWidth: '20rem', margin: '0.5rem', height: '100%' }}
+          style={{ minWidth: '30rem', margin: '0.5rem', height: '100%' }}
           className='flex'
           value={contents}
         />
@@ -94,7 +94,7 @@ export function Compositions() {
               />
             ))}
           </div>
-            <ControlsDescription />
+          <ControlsDescription />
         </div>
       </section>
     </div>

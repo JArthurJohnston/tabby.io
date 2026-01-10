@@ -1,18 +1,19 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import abcjs from 'abcjs'
 
 export function useSynth(abcUI) {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
   const synth = useRef()
   const audioContext = useRef()
 
-  const loadSynth = async () => {
+  const loadSynth = () => {
     setIsLoading(true)
     try {
       audioContext.current = new AudioContext()
-      synth.current = await abcjs.synth.CreateSynth()
+      synth.current = abcjs.synth.CreateSynth()
     } catch (error) {
+      console.error('Error creating synth:', error)
       setError(error)
     }
     setIsLoading(false)
@@ -27,6 +28,7 @@ export function useSynth(abcUI) {
         millisecondsPerMeasure: abcUI?.millisecondsPerMeasure()
       })
     } catch (error) {
+      console.error('Error initializing synth:', error)
       setError(error)
     }
     setIsLoading(false)
