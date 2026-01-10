@@ -7,6 +7,7 @@ import { Tabsheet } from './music-views/TabSheet'
 import { Select } from './Select'
 import { NoteFingerChart } from '../NoteFingerChart'
 import { Circle } from '../Circle'
+import { ControlsDescription } from './ControlsDescription'
 
 export function Compositions() {
   const { compId } = getRouteApi().useParams()
@@ -91,23 +92,7 @@ export function Compositions() {
               />
             ))}
           </div>
-          <div className='flex jse'>
-            <div className='flex centered'>
-              <p>Covered Hole = </p>
-              <Circle scale={0.2} fill='white' />
-            </div>
-            <div className='flex centered'>
-              <p>Open Hole = </p>
-              <Circle scale={0.2} fill='black' />
-            </div>
-            <div className='flex centered'>
-              <p>Half Covered Hole = </p>
-              <Circle scale={0.2} fill='grey' />
-            </div>
-            <div className='flex centered'>
-              <p>* = Overblow</p>
-            </div>
-          </div>
+            <ControlsDescription />
         </div>
       </section>
     </div>
