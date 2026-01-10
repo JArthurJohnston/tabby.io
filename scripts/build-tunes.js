@@ -12,7 +12,7 @@ songFiles.forEach((eachFile) => {
   const contents = fs.readFileSync(filePath, 'utf-8')
   abcSongs.push({
     name: eachFile.split('.abc')[0],
-    filePath,
+    filePath: '/tabby.io/public/tunes/' + eachFile,
     contents,
   })
 })

@@ -1,3 +1,5 @@
+import { Circle } from "../Circle";
+
 export function ControlsDescription() {
   return (
     <div className='flex jse'>

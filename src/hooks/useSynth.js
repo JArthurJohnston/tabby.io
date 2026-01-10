@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import abcjs from 'abcjs'
 
 export function useSynth(abcUI) {
-  // Synth logic here
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   const synth = useRef()

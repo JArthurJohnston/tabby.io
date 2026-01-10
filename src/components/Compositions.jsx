@@ -6,7 +6,6 @@ import { SheetMusic } from './music-views/SheetMusic'
 import { Tabsheet } from './music-views/TabSheet'
 import { Select } from './Select'
 import { NoteFingerChart } from '../NoteFingerChart'
-import { Circle } from '../Circle'
 import { ControlsDescription } from './ControlsDescription'
 
 export function Compositions() {
@@ -49,8 +48,9 @@ export function Compositions() {
             target='_blank'
             rel='noopener noreferrer'
             style={{ marginLeft: '1rem' }}
+            download
           >
-            View File
+            Download
           </a>
       </div>
       <div className='flex column' style={{ minHeight: '65vh' }}>
