@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import abcjs from 'abcjs'
-import { NAFlute } from './instruments'
+import { NAFlute_D, PennyWhistle_D } from './instruments'
 import { NoteFingerChart } from './NoteFingerChart'
 
 export function ABC_Composer() {
@@ -8,7 +8,7 @@ export function ABC_Composer() {
   const [music, setMusic] = useState('')
   const [musicLines, setMusicLines] = useState([])
 
-  const instrument = NAFlute
+  const instrument = NAFlute_D
 
   const handleUpdate = (e) => {
     const val = e.target.value
@@ -20,13 +20,13 @@ export function ABC_Composer() {
       const { lines } = tune
       setMusicLines(lines || [])
     }
-    const abcMusic = `T:${title || 'Untiled'}
-    K:${instrument.key}
-    M:4/4
-    L:1/8
-    ${music}
-    `
-    abcjs.renderAbc('sheet-music', abcMusic, {
+    // const abcMusic = `T:${title || 'Untiled'}
+    // K:${instrument.key}
+    // M:4/4
+    // L:1/8
+    // ${music}
+    // `
+    abcjs.renderAbc('sheet-music', music, {
       afterParsing,
       responsive: 'resize',
     })
@@ -41,13 +41,13 @@ export function ABC_Composer() {
         <div className='half-width'>
           <div id='sheet-music' />
         </div>
-        <TabSheet lines={musicLines} className='half-width' />
+        <TabSheet lines={musicLines} className='half-width' instrument={instrument} />
       </div>
-      <div className='flex row full-width' style={{ height: '30%' }}>
+      <div className='flex row full-width' style={{ height: '35%' }}>
         <section className='full-width bt centered flex col'>
           <heading className='ml'>Editor</heading>
           <textarea
-            style={{ width: '95%', height: '95%' }}
+            style={{ width: '95%', height: '90%' }}
             value={music}
             onChange={handleUpdate}
             onSelect={(e) => {
@@ -64,6 +64,7 @@ export function ABC_Composer() {
                 note={e}
                 scale={0.25}
                 labelKey='abc'
+                showLabel
               />
             ))}
           </div>
@@ -73,7 +74,7 @@ export function ABC_Composer() {
   )
 }
 
-export function TabSheet({ lines, className = '' }) {
+export function TabSheet({ lines, className = '', instrument }) {
   return (
     <div
       style={{ height: '93%', overflowX: 'scroll', width: '50vw' }}
@@ -87,7 +88,7 @@ export function TabSheet({ lines, className = '' }) {
                 const { el_type, pitches, duration } = eev
                 if (el_type === 'note')
                   return pitches?.map((eachPitch) => {
-                    const note = NAFlute.notes.find(
+                    const note = instrument.notes.find(
                       (en) => en.abc === eachPitch.name,
                     )
                     return note ? (
@@ -119,9 +120,6 @@ function BarLine() {
       |
       <br />
       |
-      <br />
-      |
-      <br />|
     </div>
   )
 }
@@ -136,9 +134,12 @@ function EmptyNote() {
       -
       <br />
       -
-      <br />
-      -
-      <br />-
     </div>
   )
 }
+
+// claim # 402257110
+
+// adjuster
+// cornelia johnson
+// 313 490 6327

@@ -35,9 +35,6 @@ function EmptyNote() {
       -
       <br />
       -
-      <br />
-      -
-      <br />-
     </div>
   )
 }

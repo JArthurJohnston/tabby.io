@@ -1,19 +1,19 @@
 import { describe, expect, it } from 'vitest'
 import { processInput } from './tab-parsers'
-import { NAFlute } from './instruments'
+import { NAFlute_D } from './instruments'
 
 describe('process input', () => {
   it('returns an empty line', () => {
-    const lines = processInput('', NAFlute, 0, 0)
+    const lines = processInput('', NAFlute_D, 0, 0)
 
     expect(lines.length).toEqual(1)
     expect(lines[0].length).toEqual(0)
   })
 
   it('returns a line with a note', () => {
-    const expectedNote = NAFlute.notes[6]
+    const expectedNote = NAFlute_D.notes[6]
 
-    const lines = processInput('a', NAFlute, 0, 0)
+    const lines = processInput('a', NAFlute_D, 0, 0)
 
     expect(lines.length).toEqual(1)
 
@@ -22,9 +22,9 @@ describe('process input', () => {
   })
 
     it('returns a line with a sharp note', () => {
-    const expectedNote = NAFlute.notes[7] //a#
+    const expectedNote = NAFlute_D.notes[7] //a#
 
-    const lines = processInput('a#', NAFlute, 0, 0)
+    const lines = processInput('a#', NAFlute_D, 0, 0)
 
     expect(lines.length).toEqual(1)
 
@@ -33,10 +33,10 @@ describe('process input', () => {
   })
 
   it('returns a line with multiple notes', () => {
-    const expectedANote = NAFlute.notes[6]
-    const expectedBNote = NAFlute.notes[8]
+    const expectedANote = NAFlute_D.notes[6]
+    const expectedBNote = NAFlute_D.notes[8]
 
-    const lines = processInput('a b', NAFlute, 0, 0)    
+    const lines = processInput('a b', NAFlute_D, 0, 0)    
 
     expect(lines.length).toEqual(1)
 
@@ -48,10 +48,10 @@ describe('process input', () => {
   })
 
   it('parses multiple lines', () => {
-    const expectedANote = NAFlute.notes[6]
-    const expectedBNote = NAFlute.notes[8]
+    const expectedANote = NAFlute_D.notes[6]
+    const expectedBNote = NAFlute_D.notes[8]
 
-    const lines = processInput('a\nb', NAFlute, 0, 0)    
+    const lines = processInput('a\nb', NAFlute_D, 0, 0)    
 
     expect(lines.length).toEqual(2)
 

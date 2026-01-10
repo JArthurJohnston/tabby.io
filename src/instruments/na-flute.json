@@ -2,14 +2,7 @@
   "id": "na-flute-d",
   "name": "Native Flute in D",
   "holes": 6,
-  "fingering": [
-    "LEFT_INDEX",
-    "LEFT_MIDDLE",
-    "LEFT_RING",
-    "RIGHT_INDEX",
-    "RIGHT_MIDDLE",
-    "RIGHT_RING"
-  ],
+  "fingering": [0, 1, 2, 3, 4, 5],
   "key": "D",
   "notes": [
     {
@@ -37,7 +30,7 @@
       "abc": "F"
     },
     {
-      "note": "F",
+      "note": "F#",
       "octave": 5,
       "fingering": "111101",
       "sharp": true,
@@ -53,7 +46,7 @@
       "abc": "G"
     },
     {
-      "note": "G",
+      "note": "G#",
       "octave": 5,
       "fingering": "111010",
       "sharp": true,
@@ -69,7 +62,7 @@
       "abc": "A"
     },
     {
-      "note": "A",
+      "note": "A#",
       "octave": 5,
       "fingering": "110100",
       "sharp": true,
@@ -90,15 +83,15 @@
       "fingering": "101000",
       "sharp": false,
       "flat": false,
-      "abc": "c"
+      "abc": "C"
     },
     {
-      "note": "C",
+      "note": "C#",
       "octave": 5,
       "fingering": "100000",
       "sharp": true,
       "flat": false,
-      "abc": "^c"
+      "abc": "^C"
     },
     {
       "note": "D",
@@ -109,7 +102,7 @@
       "abc": "d"
     },
     {
-      "note": "D",
+      "note": "D#",
       "octave": 6,
       "fingering": "001111",
       "sharp": true,
@@ -125,7 +118,7 @@
       "abc": "c"
     },
     {
-      "note": "C",
+      "note": "C#",
       "octave": 6,
       "fingering": "011000",
       "sharp": true,
@@ -135,7 +128,7 @@
     {
       "note": "F",
       "octave": 6,
-      "fingering": "001110",
+      "fingering": "011110",
       "sharp": false,
       "flat": false,
       "abc": "f"
