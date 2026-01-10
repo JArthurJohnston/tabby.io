@@ -7,6 +7,7 @@ import { Tabsheet } from './music-views/TabSheet'
 import { Select } from './Select'
 import { NoteFingerChart } from '../NoteFingerChart'
 import { ControlsDescription } from './ControlsDescription'
+import { PrintButton } from './buttons/PrintButton'
 
 export function Compositions() {
   const { compId } = getRouteApi().useParams()
@@ -52,6 +53,7 @@ export function Compositions() {
           >
             Download
           </a>
+          <PrintButton />
       </div>
       <div className='flex column' style={{ minHeight: '65vh' }}>
         <div className='flex row full-width'>
