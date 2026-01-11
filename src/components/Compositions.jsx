@@ -7,7 +7,7 @@ import { Tabsheet } from './music-views/TabSheet'
 import { Select } from './Select'
 import { NoteFingerChart } from '../NoteFingerChart'
 import { ControlsDescription } from './ControlsDescription'
-import { PrintButton } from './buttons/PrintButton'
+import abcjs from 'abcjs'
 
 export function Compositions() {
   const { compId } = getRouteApi().useParams()
@@ -17,6 +17,10 @@ export function Compositions() {
 
   const { current: instrument, instruments, changeInstrument } = useInstrument()
   const notes = [...instrument.notes]
+
+  const midi = abcjs.synth.getMidiFile(contents, {
+    midiOutputType: 'encoded',
+  })
 
   return (
     <div>
@@ -52,8 +56,25 @@ export function Compositions() {
           style={{ marginLeft: '1rem' }}
           download
         >
-          Download
+          Download ABC
         </a>
+        <a
+          download
+          href={midi}
+          target='_blank'
+          rel='noopener noreferrer'
+          style={{ marginLeft: '1rem' }}
+        >
+          Download MIDI
+        </a>
+        <input
+          type='button'
+          value='Play MIDI'
+          style={{ marginLeft: '1rem' }}
+          onClick={() => {
+            MIDIjs.play(midi)
+          }}
+        />
       </div>
       <div className='flex column' style={{ minHeight: '65vh' }}>
         <div className='flex row full-width'>
