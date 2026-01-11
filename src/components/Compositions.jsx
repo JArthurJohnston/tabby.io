@@ -18,9 +18,9 @@ export function Compositions() {
   const { current: instrument, instruments, changeInstrument } = useInstrument()
   const notes = [...instrument.notes]
 
-      const midi = abcjs.synth.getMidiFile(contents, {
-               midiOutputType: 'encoded', bpm: 10
-            })
+  const midi = abcjs.synth.getMidiFile(contents, {
+    midiOutputType: 'encoded',
+  })
 
   return (
     <div>
